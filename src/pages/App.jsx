@@ -25,7 +25,8 @@ function App() {
           </ul>
         </div>
         <div className="navbar-right">
-        <a href="#subscribe" className="subscribe-btn">Subscribe</a>        </div>
+          <a href="#subscribe" className="subscribe-btn">Subscribe</a>        
+        </div>
       </nav>
       <h1 className="topText">Welcome to Scribe, we write about technology, people and culture</h1>
       <FooterTheme logoImage = {info.logoImage} routes = {info.routes} socialLinks = {info.socialLinks} webName = {info.webName} address = {info.address}/>
