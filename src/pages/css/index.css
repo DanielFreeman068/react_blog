@@ -1,0 +1,160 @@
+/* navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+  border-bottom: 2px solid gray;
+  background-color: #e0e0e0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  margin-left: 5rem;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  color: #3A563D;
+  font-family: "Inria Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: #3A563D;
+  font-family: "Inria Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #3A563D;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  margin-right: 5rem;
+}
+
+.subscribe-btn {
+  background-color: #3A563D;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  font-family: "Inria Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.subscribe-btn:hover {
+  background-color: #BDE6C2;
+}
+
+/* heading text under nav styling */
+.topText {
+  color: #3A563D;
+  margin: 150px 0 100px 70px;
+  max-width: 480px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px 20px;
+    align-items: flex-start;
+  }
+
+  .navbar-left {
+    flex-direction: column;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .brand-name {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar-right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+  }
+
+  .subscribe-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .topText {
+    margin: 150px auto 0px auto;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .subscribe-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .topText {
+    margin: 120px auto 0px auto;
+    max-width: 350px;
+  }
+}
