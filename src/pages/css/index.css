@@ -96,6 +96,14 @@
   max-width: 480px;
 }
 
+/* heading text under nav styling */
+.subText {
+  color: #3A563D;
+  text-align: center;
+  max-width: 480px;
+  margin: auto;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .navbar {

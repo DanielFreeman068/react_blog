@@ -1,133 +1,173 @@
-/* SECTION + CONTAINER (overall) */
-.section {
-    padding: 60px 0;
-  }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    opacity: 1; 
-    transition: opacity 0.6s; 
-  }
-  
-  /* 2-COLUMN LAYOUT */
-  .blog-grid {
-    display: grid;
-    /* Left side bigger than right side for large/small effect */
-    grid-template-columns: 2fr 1fr; 
-    gap: 60px;
-    align-items: stretch; 
-  }
-  .grid-column {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* TITLES & SPACERS */
-  .section-title-wrapper {
-    margin-bottom: 16px;
-  }
-  .heading.small {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0;
-  }
-  .heading.large {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0;
-  }
-  .heading.regular {
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin: 0;
-  }
-  .spacer._16 {
-    height: 16px;
-  }
-  
-  /* POSTS WRAPPER & GRID */
-  .posts-wrapper {
-    margin-bottom: 40px;
-  }
-  
-  /* FEATURED: 2 stacked “big” posts */
-  .posts-grid.featured {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 40px;
-    height: 100%; 
-  }
-  
-  /* RECENT: 6 smaller posts in 3 rows × 2 columns */
-  .posts-grid.recent {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 40px;
-    height: 100%;
-  }
-  
-  /* POST ITEM STYLES */
-  .post-item {
-    background-color: #fff;
-    overflow: hidden;
-    border-radius: 4px;
-  }
-  .post-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-  }
-  .post-item-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  .post-item-image-wrapper {
-    width: 100%;
-    overflow: hidden;
-  }
-  .post-item-image {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-  }
-  
-  /* POST TOP + BOTTOM */
-  .top {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-  }
-  .bottom {
-    padding: 16px;
-  }
-  .divider-line.primary-colour {
-    width: 40px;
-    height: 2px;
-    background-color: #000;
-    margin-bottom: 8px;
-  }
-  .post-top-details-wrapper {
-    display: flex;
-    gap: 12px;
-  }
-  .post-detail-tag {
-    font-size: 0.875rem;
-    color: #888;
-  }
-  
-  /* TEXT CONTENT */
-  .text-color-4 {
-    color: #444;
-  }
-  .paragraph {
-    margin: 8px 0 0 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-  .paragraph.small {
-    font-size: 0.875rem;
-  }
-      
+/***************************************************************
+ *  Layout & Container
+ ***************************************************************/
+ .section {
+  padding: 60px 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.6s;
+}
+
+/***************************************************************
+ *  2-COLUMN LAYOUT
+ ***************************************************************/
+.blog-grid {
+  display: grid;
+  /* Featured (left) is a bit smaller, Recent (right) a bit larger */
+  grid-template-columns: 3fr 2fr; 
+  gap: 60px;
+  align-items: stretch;
+}
+.grid-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/***************************************************************
+ *  Section Titles & Spacers
+ ***************************************************************/
+.section-title-wrapper {
+  margin-bottom: 16px;
+}
+.heading.small {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+.heading.large {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+.heading.regular {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+}
+.spacer._16 {
+  height: 16px;
+}
+
+/***************************************************************
+ *  Posts Wrapper & Grid Layouts
+ ***************************************************************/
+.posts-wrapper {
+  margin-bottom: 40px;
+}
+
+/* FEATURED (2 big stacked posts) */
+.posts-grid.featured {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 40px;
+  height: 100%;
+}
+
+/* RECENT (6 smaller posts in 3 rows × 2 columns) */
+.posts-grid.recent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 40px;
+  height: 100%;
+}
+
+/***************************************************************
+ *  Post Item Styles
+ ***************************************************************/
+.post-item {
+  border-radius: 6px;
+  /* Soft shadow */
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.post-item:hover {
+  /* Slight lift on hover */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.post-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Force the content to stretch vertically if needed */
+.post-item-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/***************************************************************
+ *  Image Wrapper & Hover Effects
+ ***************************************************************/
+.post-item-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  /* 
+    If you want a consistent aspect ratio (e.g. 16:9), you could do:
+    aspect-ratio: 16 / 9;
+  */
+  position: relative;
+}
+
+.post-item-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom the image on hover */
+.post-item:hover .post-item-image {
+  transform: scale(1.05);
+}
+
+/***************************************************************
+ *  Post Top & Bottom
+ ***************************************************************/
+.top {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.bottom {
+  padding: 16px;
+}
+.divider-line.primary-colour {
+  width: 40px;
+  height: 2px;
+  background-color: #000;
+  margin-bottom: 8px;
+}
+.post-top-details-wrapper {
+  display: flex;
+  gap: 12px;
+}
+.post-detail-tag {
+  font-size: 0.875rem;
+  color: #888;
+}
+
+/***************************************************************
+ *  Text Content
+ ***************************************************************/
+.text-color-4 {
+  color: #444;
+}
+.paragraph {
+  margin: 8px 0 0 0;
+  font-size: 1rem;   /* slightly bigger than .95rem */
+  line-height: 1.6;  /* a bit more line spacing */
+}
+.paragraph.small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}

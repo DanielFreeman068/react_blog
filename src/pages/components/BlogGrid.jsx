@@ -1,12 +1,13 @@
 import React from 'react';
-import '../css/BlogGrid.css'; 
+import Excerpt from './Excerpt'; // path to your Excerpt.jsx
+import '../css/BlogGrid.css';
 
-const BlogGrid = ({ featuredPosts, recentPosts }) => {
+function BlogGrid({ featuredPosts, recentPosts }) {
   return (
     <div className="section">
       <div className="container">
         <div className="blog-grid">
-          {/* FEATURED COLUMN */}
+          {/* Left column (Featured) */}
           <div className="grid-column">
             <div className="section-title-wrapper">
               <h2 className="heading small">Featured</h2>
@@ -16,11 +17,9 @@ const BlogGrid = ({ featuredPosts, recentPosts }) => {
               <div className="posts-grid featured">
                 {featuredPosts.map((post, index) => (
                   <div className="post-item" key={index}>
-                    <a
-                      aria-label="Blog post link"
-                      href={post.link}
-                      className="post-link"
-                    >
+                    {/* The entire post is still a link, so the user goes
+                        to the blog post when they click anywhere */}
+                    <a href={post.link} className="post-link">
                       <div className="post-item-content">
                         <div className="post-item-image-wrapper">
                           <img
@@ -39,7 +38,8 @@ const BlogGrid = ({ featuredPosts, recentPosts }) => {
                         <div className="bottom">
                           <h2 className="heading large">{post.title}</h2>
                           <div className="text-color-4">
-                            <div className="paragraph">{post.excerpt}</div>
+                            {/* Just shows truncated excerpt + "Read more" text */}
+                            <Excerpt excerpt={post.excerpt} limit={25} />
                           </div>
                         </div>
                       </div>
@@ -50,7 +50,7 @@ const BlogGrid = ({ featuredPosts, recentPosts }) => {
             </div>
           </div>
 
-          {/* RECENT COLUMN */}
+          {/* Right column (Recent) */}
           <div className="grid-column">
             <div className="section-title-wrapper">
               <h2 className="heading small">Recent</h2>
@@ -60,11 +60,7 @@ const BlogGrid = ({ featuredPosts, recentPosts }) => {
               <div className="posts-grid recent">
                 {recentPosts.map((post, index) => (
                   <div className="post-item" key={index}>
-                    <a
-                      aria-label="Blog post link"
-                      href={post.link}
-                      className="post-link"
-                    >
+                    <a href={post.link} className="post-link">
                       <div className="post-item-content">
                         <div className="post-item-image-wrapper">
                           <img
@@ -83,9 +79,8 @@ const BlogGrid = ({ featuredPosts, recentPosts }) => {
                         <div className="bottom">
                           <h2 className="heading regular">{post.title}</h2>
                           <div className="text-color-4">
-                            <div className="paragraph small">
-                              {post.excerpt}
-                            </div>
+                            {/* Same usage, smaller limit if you prefer */}
+                            <Excerpt excerpt={post.excerpt} limit={9} />
                           </div>
                         </div>
                       </div>
@@ -99,6 +94,6 @@ const BlogGrid = ({ featuredPosts, recentPosts }) => {
       </div>
     </div>
   );
-};
+}
 
 export default BlogGrid;

@@ -1,0 +1,12 @@
+.fancy-line {
+    border: none;
+    margin: 3rem 0; 
+    background: linear-gradient(to right, #ddd, #333, #ddd);
+    height: 2px;
+    border-radius: 1px;
+  }
+  
+  .fancy-line:hover {
+    background: linear-gradient(to right, #ccc, #666, #ccc);
+  }
+  
