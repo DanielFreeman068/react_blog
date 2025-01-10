@@ -10,3 +10,9 @@
     background: linear-gradient(to right, #ccc, #666, #ccc);
   }
   
+  @media (max-width: 768px) {
+    .fancy-line {
+      margin: 2rem 0; /* Reduce vertical spacing */
+    }
+  }
+  

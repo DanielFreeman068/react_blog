@@ -11,3 +11,15 @@
     font-weight: 500;
     margin-left: 4px;
   }
+
+  @media (max-width: 768px) {
+    .excerpt-text {
+      font-size: 0.9rem; /* Slightly smaller text */
+      line-height: 1.4;
+    }
+  
+    .read-more-label {
+      font-size: 0.9rem; /* Match excerpt size */
+    }
+  }
+  

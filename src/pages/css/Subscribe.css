@@ -1,0 +1,98 @@
+.subscribe-container {
+background-color: #022c22; 
+color: #fff;
+padding: 2rem;
+text-align: center;
+font-family: 'Montserrat', serif;
+}
+
+.subscribe-heading {
+font-size: 1.8rem;
+font-weight: bold;
+margin-bottom: 1.5rem;
+}
+
+.subscribe-form {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 1rem;
+margin-bottom: 1rem;
+}
+
+.subscribe-input {
+padding: 0.75rem 1rem;
+font-size: 1rem;
+border: 1px solid #ccc;
+border-radius: 0.25rem;
+width: 300px;
+outline: none;
+}
+
+.subscribe-input:focus {
+border-color: #5cb85c; 
+}
+
+.subscribe-button {
+padding: 0.75rem 1.5rem;
+font-size: 1rem;
+background-color: #a3d5a3; 
+border: none;
+border-radius: 0.25rem;
+cursor: pointer;
+color: #022c22; 
+font-weight: bold;
+transition: background-color 0.3s ease;
+}
+
+.subscribe-button:hover {
+background-color: #91c291;
+}
+
+.subscribe-status {
+background-color: #ccc;
+color: #333;
+padding: 0.75rem 1rem;
+font-size: 1rem;
+border-radius: 0.25rem;
+width: 300px;
+text-align: center;
+font-weight: bold;
+}
+
+.subscribe-note {
+font-size: 0.9rem;
+color: #d3d3d3; 
+}
+
+.invalid-input {
+border: 2px solid red;
+background-color: #ffe6e6;
+}
+
+.error-message {
+color: red;
+font-size: 0.9rem;
+margin-top: 0.5rem;
+text-align: center;
+}
+
+@media (max-width: 768px) {
+.subscribe-container {
+    padding: 1rem; 
+}
+
+.subscribe-form {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.subscribe-input,
+.subscribe-status {
+    width: 80%; 
+}
+
+.subscribe-button {
+    width: 50%;
+}
+}

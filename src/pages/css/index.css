@@ -1,32 +1,32 @@
-/* navbar styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0px;
+  padding: 15px 20px; 
   border-bottom: 2px solid gray;
   background-color: #e0e0e0;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  box-sizing: border-box;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
-  margin-left: 5rem;
+  margin-left: 0; 
 }
 
 .brand-name {
   font-size: 1.5rem;
   color: #3A563D;
-  font-family: "Inria Serif", serif;
+  font-family: "Montserrat", serif;
   font-weight: 700;
-  font-style: normal;
   text-decoration: none;
   margin-right: 20px;
 }
+
 
 .nav-links {
   list-style: none;
@@ -38,11 +38,15 @@
 
 .nav-links li {
   display: inline;
+  max-width: 150px; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .nav-links a {
   color: #3A563D;
-  font-family: "Inria Serif", serif;
+  font-family: "Montserrat", serif;
   font-weight: 700;
   font-style: normal;
   text-decoration: none;
@@ -80,7 +84,7 @@
   border-radius: 5px;
   font-size: 1rem;
   transition: background-color 0.3s;
-  font-family: "Inria Serif", serif;
+  font-family: "Montserrat", serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -89,14 +93,12 @@
   background-color: #BDE6C2;
 }
 
-/* heading text under nav styling */
 .topText {
   color: #3A563D;
   margin: 150px 0 100px 70px;
   max-width: 480px;
 }
 
-/* heading text under nav styling */
 .subText {
   color: #3A563D;
   text-align: center;
@@ -104,65 +106,37 @@
   margin: auto;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 10px 20px;
-    align-items: flex-start;
   }
 
   .navbar-left {
-    flex-direction: column;
-    margin-left: 0;
-    width: 100%;
-  }
-
-  .brand-name {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    width: auto;
   }
 
   .nav-links {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     gap: 10px;
-    width: 100%;
+    list-style: none;
   }
 
-  .nav-links li {
-    width: 100%;
-    text-align: left;
+  .nav-links a{
+    padding: 0px;
+
   }
 
   .navbar-right {
-    position: absolute;
-    right: 0;
-    top: 50%;
+    margin-right: 0;
   }
 
   .subscribe-btn {
-    padding: 8px 16px;
+    padding: 8px 12px;
     font-size: 0.9rem;
-  }
-
-  .topText {
-    margin: 150px auto 0px auto;
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-name {
-    font-size: 1rem;
-  }
-
-  .subscribe-btn {
-    padding: 6px 12px;
-    font-size: 0.8rem;
-  }
-
-  .topText {
-    margin: 120px auto 0px auto;
-    max-width: 350px;
   }
 }

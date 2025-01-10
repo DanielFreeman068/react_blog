@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 html{
     scroll-behavior: smooth;
@@ -6,19 +6,20 @@ html{
 body{
     overflow-x: hidden;
 }
-/* FOOTER STYLING */
 footer {
     background-color: #e0e0e0;
     color: #fff;
     padding: 3rem 0 0 0;
-    margin-top: 4rem;
-    width:100vw;
-    margin-left: -.5rem;
-    margin-bottom: -1rem;
+    margin: 0;
+    width: 100vw; 
+    margin-left: 0; 
+    margin-bottom: 0; 
+    overflow-x: hidden; 
 }
 
+
 .fcont {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
@@ -58,7 +59,7 @@ footer {
     margin-bottom: 1rem;
     color: #3A563D;
     text-align: center;
-    font-family: "Inria Serif", serif;
+    font-family: "Montserrat", serif;
     font-weight: 700;
     font-style: normal;
 }
@@ -79,7 +80,7 @@ footer {
     color: #3A563D;
     text-decoration: none;
     transition: color 0.2s;
-    font-family: "Inria Serif", serif;
+    font-family: "Montserrat", serif;
     font-weight: 700;
     font-style: normal;
 }
@@ -126,7 +127,7 @@ a:hover{
     color:#ffffff;
     transition: all .5s ease-in-out;
     font-size:1.5em;
-    font-family: "Inria Serif", serif;
+    font-family: "Montserrat", serif;
     font-weight: 700;
     font-style: normal;
 }
@@ -139,7 +140,7 @@ a:hover{
 .footerHeader {
     color: #3A563D;
     font-size: 60px;
-    font-family: "Inria Serif", serif;
+    font-family: "Montserrat", serif;
     font-weight: 700;
     font-style: normal;
 }
@@ -152,48 +153,23 @@ a:hover{
     font-size: 0.9rem;
 }
 
-/* Media Queries for better mobile responsiveness */
-@media screen and (max-width: 768px) {
-    .fcont {
-        width: 95%;
-        gap: 1.5rem;
-        padding: 0 0.5rem 1.5rem 0.5rem;
-    }
-
-    .links h1, 
-    .socials h1 {
-        font-size: 1.25rem;
-    }
-
-    .links h3 {
-        font-size: 0.95rem;
-    }
-
-    .social-imgs {
-        gap: 1rem;
-    }
-
-    .foot {
-        font-size: 0.8rem;
-        padding: 1rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
+@media (max-width: 768px) {
     footer {
-        padding: 2rem 0 0 0;
+      padding: 1rem 0;
     }
-
+  
     .fcont {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Single column layout */
+      gap: 1rem;
     }
-
+  
     .fhead img {
-        width: 140px;
+      width: 120px; /* Smaller logo */
     }
-
+  
     .social-imgs img {
-        width: 20px;
-        height: 20px;
+      width: 20px;
+      height: 20px;
     }
-}
+  }
+  
