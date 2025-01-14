@@ -14,9 +14,9 @@ const info = {
     technology: "#technology",
   },
   socialLinks: {
-    github: "https://github.com/johndoe",
-    instagram: "https://instagram.com/johndoe",
-    linkedIn: "https://linkedin.com/johndoe",
+    twitter: "https://twitter.com/johndoe",
+    facebook: "https://facebook.com/johndoe",
+    linkedIn: "https://linkedin.com/in/johndoe",    
   },
 };
 

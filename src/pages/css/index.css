@@ -49,6 +49,7 @@
   font-family: "Montserrat", serif;
   font-weight: 700;
   font-style: normal;
+  font-size: 17px;
   text-decoration: none;
   padding: 5px 10px;
   position: relative;
@@ -106,7 +107,59 @@
   margin: auto;
 }
 
+/* about styling */
+.about-section, .contact-section {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 60vw;
+  background-color: #e0dfdf;
+  border-radius: 8px;
+  text-align: center;
+}
+h2 {
+  font-size: 24px;
+  color: #3A563D;
+  margin-bottom: 10px;
+}
+p, li {
+  font-size: 17px;
+  color: #333;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
 @media (max-width: 768px) {
+  .about-section, .contact-section {
+    max-width: 80vw;
+  }
+  .subscribe-btn {
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-family: "Montserrat", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .topText {
+    margin: 150px auto 50px auto;
+    padding: 30px;
+  }
+  
   .navbar {
     flex-direction: row;
     justify-content: space-between;
@@ -128,7 +181,7 @@
 
   .nav-links a{
     padding: 0px;
-
+    font-size: 14px;
   }
 
   .navbar-right {
