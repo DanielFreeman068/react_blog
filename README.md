@@ -20,9 +20,15 @@ You can download and install **Node.js** from [here](https://nodejs.org/).
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/yourusername/react-blog.git
+```
+```bash
 cd react-blog
+```
+```bash
 npm install
-npm start
+```
+```bash
+npm run start
 ```
 
 ### Summary:
