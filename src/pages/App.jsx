@@ -1,10 +1,22 @@
 import FooterTheme from './components/FooterTheme';
-import React from 'react';
+import React, { useState } from 'react';
 import BlogGrid from './components/BlogGrid';
 import Line from './components/Line';
 import Subscribe from './components/Subscribe';
+import SearchBar from './components/SearchBar';
+
 
 function App({ lifestylePosts, technologyPosts, info }) {
+
+  const allPosts = [
+    ...lifestylePosts.featured,
+    ...lifestylePosts.recent,
+    ...technologyPosts.featured,
+    ...technologyPosts.recent,
+  ];
+
+  const [filteredPosts, setFilteredPosts] = useState(allPosts);
+
   return (
     <>
       <nav className="navbar">
@@ -24,14 +36,19 @@ function App({ lifestylePosts, technologyPosts, info }) {
       <h1 className="topText">
         Welcome to Scribe, we write about technology, people, and culture
       </h1>
+      <SearchBar posts={allPosts} setFilteredPosts={setFilteredPosts} />
 
       {/* LIFESTYLE SECTION */}
       <Line />
       <h1 className="subText">Lifestyle</h1>
       <div id="lifestyle">
         <BlogGrid
-          featuredPosts={lifestylePosts.featured}
-          recentPosts={lifestylePosts.recent}
+          featuredPosts={filteredPosts.filter((post) =>
+            lifestylePosts.featured.includes(post)
+          )}
+          recentPosts={filteredPosts.filter((post) =>
+            lifestylePosts.recent.includes(post)
+          )}
         />
       </div>
 
@@ -40,8 +57,12 @@ function App({ lifestylePosts, technologyPosts, info }) {
       <h1 className="subText">Technology</h1>
       <div id="technology">
         <BlogGrid
-          featuredPosts={technologyPosts.featured}
-          recentPosts={technologyPosts.recent}
+          featuredPosts={filteredPosts.filter((post) =>
+            technologyPosts.featured.includes(post)
+          )}
+          recentPosts={filteredPosts.filter((post) =>
+            technologyPosts.recent.includes(post)
+          )}
         />
       </div>
 

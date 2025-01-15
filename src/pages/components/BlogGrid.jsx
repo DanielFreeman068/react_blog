@@ -1,22 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../css/BlogGrid.css';
-import SearchBar from './SearchBar';
 
 const BlogGrid = ({ featuredPosts, recentPosts }) => {
-  const [filteredPosts, setFilteredPosts] = useState([
-    ...featuredPosts,
-    ...recentPosts,
-  ]);
-
   return (
     <div className="section">
       <div className="container">
-        {/* Search Bar */}
-        <SearchBar
-          posts={[...featuredPosts, ...recentPosts]}
-          setFilteredPosts={setFilteredPosts}
-        />
-
         <div className="blog-grid">
           {/* FEATURED COLUMN */}
           <div className="grid-column">
@@ -26,42 +14,38 @@ const BlogGrid = ({ featuredPosts, recentPosts }) => {
             </div>
             <div className="posts-wrapper featured">
               <div className="posts-grid featured">
-                {filteredPosts
-                  .filter((post) => featuredPosts.includes(post))
-                  .map((post, index) => (
-                    <div className="post-item" key={index}>
-                      <a
-                        aria-label="Blog post link"
-                        href={post.link}
-                        className="post-link"
-                      >
-                        <div className="post-item-content">
-                          <div className="post-item-image-wrapper">
-                            <img
-                              src={post.image}
-                              alt={post.altText}
-                              className="post-item-image"
-                            />
-                          </div>
-                          <div className="top">
-                            <div className="divider-line primary-colour"></div>
-                            <div className="post-top-details-wrapper">
-                              <div className="post-detail-tag">
-                                {post.category}
-                              </div>
-                              <div className="post-detail-tag">{post.date}</div>
-                            </div>
-                          </div>
-                          <div className="bottom">
-                            <h2 className="heading large">{post.title}</h2>
-                            <div className="text-color-4">
-                              <div className="paragraph">{post.excerpt}</div>
-                            </div>
+                {featuredPosts.map((post, index) => (
+                  <div className="post-item" key={index}>
+                    <a
+                      aria-label="Blog post link"
+                      href={post.link}
+                      className="post-link"
+                    >
+                      <div className="post-item-content">
+                        <div className="post-item-image-wrapper">
+                          <img
+                            src={post.image}
+                            alt={post.altText}
+                            className="post-item-image"
+                          />
+                        </div>
+                        <div className="top">
+                          <div className="divider-line primary-colour"></div>
+                          <div className="post-top-details-wrapper">
+                            <div className="post-detail-tag">{post.category}</div>
+                            <div className="post-detail-tag">{post.date}</div>
                           </div>
                         </div>
-                      </a>
-                    </div>
-                  ))}
+                        <div className="bottom">
+                          <h2 className="heading large">{post.title}</h2>
+                          <div className="text-color-4">
+                            <div className="paragraph">{post.excerpt}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -73,45 +57,39 @@ const BlogGrid = ({ featuredPosts, recentPosts }) => {
               <div className="spacer _16"></div>
             </div>
             <div className="posts-wrapper">
-              <div className="posts-grid">
-                {filteredPosts
-                  .filter((post) => recentPosts.includes(post))
-                  .map((post, index) => (
-                    <div className="post-item" key={index}>
-                      <a
-                        aria-label="Blog post link"
-                        href={post.link}
-                        className="post-link"
-                      >
-                        <div className="post-item-content">
-                          <div className="post-item-image-wrapper">
-                            <img
-                              src={post.image}
-                              alt={post.altText}
-                              className="post-item-image"
-                            />
-                          </div>
-                          <div className="top">
-                            <div className="divider-line primary-colour"></div>
-                            <div className="post-top-details-wrapper">
-                              <div className="post-detail-tag">
-                                {post.category}
-                              </div>
-                              <div className="post-detail-tag">{post.date}</div>
-                            </div>
-                          </div>
-                          <div className="bottom">
-                            <h2 className="heading regular">{post.title}</h2>
-                            <div className="text-color-4">
-                              <div className="paragraph small">
-                                {post.excerpt}
-                              </div>
-                            </div>
+              <div className="posts-grid recent">
+                {recentPosts.map((post, index) => (
+                  <div className="post-item" key={index}>
+                    <a
+                      aria-label="Blog post link"
+                      href={post.link}
+                      className="post-link"
+                    >
+                      <div className="post-item-content">
+                        <div className="post-item-image-wrapper">
+                          <img
+                            src={post.image}
+                            alt={post.altText}
+                            className="post-item-image"
+                          />
+                        </div>
+                        <div className="top">
+                          <div className="divider-line primary-colour"></div>
+                          <div className="post-top-details-wrapper">
+                            <div className="post-detail-tag">{post.category}</div>
+                            <div className="post-detail-tag">{post.date}</div>
                           </div>
                         </div>
-                      </a>
-                    </div>
-                  ))}
+                        <div className="bottom">
+                          <h2 className="heading regular">{post.title}</h2>
+                          <div className="text-color-4">
+                            <div className="paragraph small">{post.excerpt}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

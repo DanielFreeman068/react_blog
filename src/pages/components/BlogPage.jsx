@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import FooterTheme from './FooterTheme';
 import Subscribe from './Subscribe';
 import GlobalStyle from '../GlobalStyles';
-import '../css/BlogPage.css'; 
+import '../css/BlogPage.css';
 
 function BlogPage({ posts }) {
   const { blogId } = useParams();
+
+  // Example comments state
+  const [comments, setComments] = useState([
+    { name: 'Alice', text: 'Great insights on this post!' },
+    { name: 'Bob', text: 'I found this article really helpful. Thanks for sharing!' },
+  ]);
+
   const blogPost = posts.find((post) => post.link === `/blogs/${blogId}`);
 
   if (!blogPost) {
     return <div>Blog not found!</div>;
   }
-
-  const subtitles = [
-    { title: 'Subtitle 1', content: 'This is the first subtitle content.' },
-    { title: 'Subtitle 2', content: 'This is the second subtitle content.' },
-    { title: 'Subtitle 3', content: 'This is the third subtitle content.' },
-    { title: 'Subtitle 4', content: 'This is the fourth subtitle content.' },
-  ];
 
   const hashtags = ['#Mindfulness', '#Lifestyle', '#Focus'];
 
@@ -37,7 +37,7 @@ function BlogPage({ posts }) {
 
   return (
     <>
-        <GlobalStyle />
+      <GlobalStyle />
 
       <nav className="navbar">
         <div className="navbar-left">
@@ -52,48 +52,64 @@ function BlogPage({ posts }) {
         </div>
       </nav>
 
-<div className="blog-page">
-    <div className="blog-metadata">
-        <span className="blog-category">{blogPost.category}</span>
-        <div className="blog-hashtags">
+      <div className="blog-page">
+        <div className="blog-metadata">
+          <span className="blog-category">{blogPost.category}</span>
+          <div className="blog-hashtags">
             {hashtags.map((hashtag, index) => (
-                <span key={index}>{hashtag}</span>
+              <span key={index}>{hashtag}</span>
             ))}
+          </div>
+          <span className="blog-date">{blogPost.date}</span>
         </div>
-        <span className="blog-date">{blogPost.date}</span>
-    </div>
 
-    <h1 className="blog-title">{blogPost.title}</h1>
-    <p className="blog-author">By: {blogPost.author}</p>
-    <p className="blog-excerpt">{blogPost.excerpt}</p>
+        <h1 className="blog-title">{blogPost.title}</h1>
+        <p className="blog-author">By: {blogPost.author}</p>
+        <p className="blog-excerpt">{blogPost.excerpt}</p>
 
-    <div className="blog-image-wrapper">
-        <img
+        <div className="blog-image-wrapper">
+          <img
             src={blogPost.image}
             alt={blogPost.altText}
             className="blog-image"
-        />
-    </div>
+          />
+        </div>
 
-    {subtitles.map((subtitle, index) => (
-        <div key={index} className="blog-subtitle">
+        {blogPost.subtitles.map((subtitle, index) => (
+          <div key={index} className="blog-subtitle">
             <h2 className="subtitle-title">{subtitle.title}</h2>
             <p className="subtitle-content">{subtitle.content}</p>
+          </div>
+        ))}
+
+        {/* Comments Section */}
+        <div className="comments-section">
+          <h3>Comments</h3>
+          <div className="comments-list">
+            {comments.map((comment, index) => (
+              <div key={index} className="comment">
+                <p><strong>{comment.name}:</strong> {comment.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="comment-input">
+            <input type="text" placeholder="Write a comment..." />
+            <button>Post</button>
+          </div>
         </div>
-    ))}
-</div>
+      </div>
 
-        <Subscribe />
+      <Subscribe />
 
-    <FooterTheme
+      <FooterTheme
         logoImage={info.logoImage}
         routes={info.routes}
         socialLinks={info.socialLinks}
         webName={info.webName}
         address={info.address}
-    />
+      />
     </>
-);
+  );
 }
 
 export default BlogPage;
